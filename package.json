@@ -1,0 +1,13 @@
+{
+  "name": "clever-tanken-bot",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "bottender": "0.14.18",
+    "nodemon": "1.14.11"
+  }
+}
