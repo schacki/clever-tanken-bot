@@ -1,5 +1,5 @@
 module.exports = {
   telegram: {
-    accessToken: '__PUT_YOUR_ACCESS_TOKEN_HERE__'
+    accessToken: '342890366:AAET5dk95jRCHYvgRvAtR6TRwU2dWCm2R50'
   }
 };

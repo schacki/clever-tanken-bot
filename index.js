@@ -1,10 +1,10 @@
 const { TelegramBot } = require('bottender');
 const { createServer } = require('bottender/express');
 
-const config = require('./bottender.config.js').telegram;
+const config = require('./bottender.config.js');
 
 const bot = new TelegramBot({
-  accessToken: config.accessToken,
+  accessToken: config.telegram.accessToken,
 });
 
 bot.onEvent(async context => {
