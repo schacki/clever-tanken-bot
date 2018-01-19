@@ -15,6 +15,6 @@ bot.onEvent(async context => {
 
 const server = createServer(bot);
 
-server.listen(8443, () => {
-  console.log('server is running on 8443 port...');
+server.listen(process.env.PORT, () => {
+  console.log("server is running on" + process.env.PORT + " port...);
 });
