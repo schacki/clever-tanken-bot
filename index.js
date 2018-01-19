@@ -1,6 +1,4 @@
 
-console.log("start index.js");
-
 const { TelegramBot } = require('bottender');
 const { createServer } = require('bottender/express');
 
@@ -11,6 +9,7 @@ const bot = new TelegramBot({
 });
 
 bot.onEvent(async context => {
+  console.log("on event");
   await context.sendText('Hello World');
 });
 
