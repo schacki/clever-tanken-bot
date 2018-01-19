@@ -9,8 +9,7 @@ const bot = new TelegramBot({
 });
 
 bot.onEvent(async context => {
-  console.log("on event");
-  await context.sendText('Hello World');
+  await context.sendText('Hello World')
 });
 
 const server = createServer(bot);
