@@ -1,3 +1,6 @@
+
+console.log("start index.js");
+
 const { TelegramBot } = require('bottender');
 const { createServer } = require('bottender/express');
 
