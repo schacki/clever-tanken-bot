@@ -37,9 +37,10 @@ server.listen(process.env.PORT, () => {
 // Functions
 
 function fetchTextInfo(text, context) {
+	var ct = context
 	witClient.message(text)
 	.then((data) => {
-		handleText(data, context)
+		handleText(data, ct)
 	})
 	.catch(console.error);
 }
