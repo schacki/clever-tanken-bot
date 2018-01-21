@@ -44,8 +44,8 @@ function handleText(text, context) {
 
   	let result = fetchTextInfo(text)
   
-  	let fuelType = result.entities.fuelType
-	let location = result.entities.location
+  	let fuelType = result.entities.fuelType[0].value
+	let location = result.entities.location[0].value
 	if(fuelType && location) {
 		fetchFuelStationPrice(location, fuelType, context)
 	} else {
