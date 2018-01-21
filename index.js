@@ -61,7 +61,7 @@ function fetchFuelStationPrice(city, fuel, context) {
 	context.typing(3000)
 		
  	HTTPCleverTankenProvider.getFuelStationPrices(city, fuel, context, function(isOK, fuelStation, context) {
-
+			console.log("getFuelStationPrices callback")
           if(isOK) {
 
               var min = Number(fuelStation.price_min);
