@@ -20,7 +20,7 @@ const bot = new TelegramBot({
 bot.onEvent(async context => {
 
 	if(context.event.isText) {
-		handleText(context.event.text)
+		handleText(context.event.text, context)
 	} else {
 		console.log("no event founded")
 	}
