@@ -1,6 +1,7 @@
 
 const { TelegramBot } = require('bottender')
 const { createServer } = require('bottender/express')
+const { HTTPCleverTankenProvider } = require('./HTTPCleverTankenProvider.js');
 
 const config = require('./bottender.config.js')
 
