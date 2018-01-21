@@ -36,22 +36,24 @@ server.listen(process.env.PORT, () => {
 
 // Functions
 
-function fetchTextInfo(text) {
-	return witClient.message(text)
+function fetchTextInfo(text, callback) {
+	witClient.message(text)
+	.then((data) => {
+		callback(data)
+	})
+	.catch(console.error);
 }
 
 function handleText(text, context) {
-
-  	let result = fetchTextInfo(text)
-  
-  	let fuelType = result.entities.fuelType[0].value
-	let location = result.entities.location[0].value
-	if(fuelType && location) {
-		fetchFuelStationPrice(location, fuelType, context)
-	} else {
-		console.log("no entities founded")
-	}
-	
+  	fetchTextInfo(text, function(result) {
+  		let fuelType = result.entities.fuelType[0].value
+		let location = result.entities.location[0].value		
+		if(fuelType && location) {
+			fetchFuelStationPrice(location, fuelType, context)
+		} else {
+			console.log("no entities founded")
+		}
+  	})
 }
 
 function fetchFuelStationPrice(city, fuel, context) {
