@@ -20,7 +20,7 @@ const bot = new TelegramBot({
 bot.onEvent(async context => {
 
 	if(context.event.isText) {
-		handleText(context.event.text, context)
+		fetchTextInfo(context.event.text, context)
 	} else {
 		console.log("no event founded")
 	}
@@ -36,24 +36,22 @@ server.listen(process.env.PORT, () => {
 
 // Functions
 
-function fetchTextInfo(text, callback) {
+function fetchTextInfo(text, context) {
 	witClient.message(text)
 	.then((data) => {
-		callback(data)
+		handleText(data, context)
 	})
 	.catch(console.error);
 }
 
-function handleText(text, context) {
-  	fetchTextInfo(text, function(result) {
-  		let fuelType = result.entities.fuelType[0].value
-		let location = result.entities.location[0].value		
-		if(fuelType && location) {
-			fetchFuelStationPrice(location, fuelType, context)
-		} else {
-			console.log("no entities founded")
-		}
-  	})
+function handleText(result) {
+  	let fuelType = result.entities.fuelType[0].value
+	let location = result.entities.location[0].value		
+	if(fuelType && location) {
+		fetchFuelStationPrice(location, fuelType, context)
+	} else {
+		console.log("no entities founded")
+	}
 }
 
 function fetchFuelStationPrice(city, fuel, context) {
