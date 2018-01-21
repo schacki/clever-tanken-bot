@@ -16,10 +16,10 @@ function createPricesURL(path, city, fuelType) {
 }
 
 // Public Functions
-exports.getFuelStationPrices = function(city, fuelType, callback) {
+exports.getFuelStationPrices = function(city, fuelType, context, callback) {
   if (process.env.MOCK_DATA === 'true') {
     const testJSON = require('./test.json');
-    callback(true, testJSON);
+    callback(true, testJSON, context);
   } else {
     request.get(createPricesURL("variance", city, fuelType), function(error, response, body) {
 
@@ -28,7 +28,7 @@ exports.getFuelStationPrices = function(city, fuelType, callback) {
 
         console.log(body);
 
-        callback(isOk, result);
+        callback(isOk, result, context);
 
     })
   }

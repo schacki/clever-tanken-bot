@@ -60,7 +60,7 @@ function fetchFuelStationPrice(city, fuel, context) {
 	
 	context.typing(3000)
 		
- 	HTTPCleverTankenProvider.getFuelStationPrices(city, fuel, function(isOK, fuelStation) {
+ 	HTTPCleverTankenProvider.getFuelStationPrices(city, fuel, context, function(isOK, fuelStation, context) {
 
           if(isOK) {
 
