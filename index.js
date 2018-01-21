@@ -21,6 +21,8 @@ bot.onEvent(async context => {
 
 	if(context.event.isText) {
 		handleText(context.event.text)
+	} else {
+		console.log("no event founded")
 	}
  	
 });
@@ -46,6 +48,8 @@ function handleText(text, context) {
 	let location = result.entities.location
 	if(fuelType && location) {
 		fetchFuelStationPrice(location, fuelType, context)
+	} else {
+		console.log("no entities founded")
 	}
 	
 }
