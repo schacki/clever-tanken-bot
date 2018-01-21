@@ -20,7 +20,7 @@ const bot = new TelegramBot({
 bot.onEvent(async context => {
 
 	if(context.event.isText) {
-		handleText(context.event.text)
+		fetchTextInfo(context.event.text, context)
 	} else {
 		console.log("no event founded")
 	}
@@ -36,22 +36,22 @@ server.listen(process.env.PORT, () => {
 
 // Functions
 
-function fetchTextInfo(text) {
-	return witClient.message(text)
+function fetchTextInfo(text, context) {
+	witClient.message(text)
+	.then((data) => {
+		handleText(data, context)
+	})
+	.catch(console.error);
 }
 
-function handleText(text, context) {
-
-  	let result = fetchTextInfo(text)
-  
+function handleText(result) {
   	let fuelType = result.entities.fuelType[0].value
-	let location = result.entities.location[0].value
+	let location = result.entities.location[0].value		
 	if(fuelType && location) {
 		fetchFuelStationPrice(location, fuelType, context)
 	} else {
 		console.log("no entities founded")
 	}
-	
 }
 
 function fetchFuelStationPrice(city, fuel, context) {
@@ -60,7 +60,7 @@ function fetchFuelStationPrice(city, fuel, context) {
 	context.typing(3000)
 		
  	HTTPCleverTankenProvider.getFuelStationPrices(city, fuel, function(isOK, fuelStation) {
-
+			console.log("getFuelStationPrices callback")
           if(isOK) {
 
               var min = Number(fuelStation.price_min);
