@@ -17,6 +17,7 @@ const witClient = new Wit({
 const bot = new TelegramBot({
   accessToken: config.telegram.accessToken,
 });
+
 bot.onEvent(async context => {
 
 	if(context.event.isText) {
@@ -44,7 +45,7 @@ function fetchTextInfo(text, context) {
 	.catch(console.error);
 }
 
-function handleText(result) {
+function handleText(result, context) {
   	let fuelType = result.entities.fuelType[0].value
 	let location = result.entities.location[0].value		
 	if(fuelType && location) {
