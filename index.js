@@ -18,14 +18,16 @@ const bot = new TelegramBot({
   accessToken: config.telegram.accessToken,
 });
 
-bot.onEvent(async context => {
+bot.setInitialState({
+  searchRadius: 10
+});
 
+bot.onEvent(async context => {
 	if(context.event.isText) {
 		fetchTextInfo(context.event.text, context)
 	} else {
 		console.log("no event founded")
 	}
- 	
 });
 
 
@@ -76,9 +78,12 @@ function fetchFuelStationPrice(city, fuel, context) {
               max = Number(max);
 
               if(min == max) {
-              	context.sendText(Strings.resultTextPrice(fuelStation.fueltype, fuelStation.city, max))
+              	let maxString = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(max)
+              	context.sendText(Strings.resultTextPrice(fuelStation.fueltype, fuelStation.city, maxString))
               } else {
-                context.sendText(Strings.resultTextMinMaxPrice(fuelStation.fueltype, fuelStation.city, min, max))
+             	 let maxString = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(max)
+             	 let minString = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(min)
+                context.sendText(Strings.resultTextMinMaxPrice(fuelStation.fueltype, fuelStation.city, minString, maxString))
               }
 
           } else {
