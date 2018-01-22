@@ -31,7 +31,7 @@ bot.onEvent(async context => {
 		context.sendText(message)
 	})
 	
-	commands.commander.parse(context.event.text)
+	console.log(commands.commander.parse(context.event.text))
 	
 	if(context.event.isText) {
 		fetchTextInfo(context.event.text, context)
