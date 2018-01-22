@@ -17,7 +17,7 @@ exports.UNKNOWN_CITY_TEXT = function(city) {
 }
 
 exports.resultTextMinMaxPrice = function(fuelType, city, minPrice, maxPrice) {
-  return fuelType + ' kostet aktuell in ' + city + ', zwischen ' + minPrice + ', und ' + maxPrice + ' pro Liter.';
+  return fuelType + ' kostet aktuell in ' + city + ' zwischen ' + minPrice + ' und ' + maxPrice + ' pro Liter.';
 }
 
 exports.resultTextPrice = function(fuelType, city, price) {

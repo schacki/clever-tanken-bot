@@ -48,13 +48,19 @@ function fetchTextInfo(text, context) {
 }
 
 function handleText(result, context) {
-  	let fuelType = result.entities.fuelType[0].value
-	let location = result.entities.location[0].value		
-	if(fuelType && location) {
-		fetchFuelStationPrice(location, fuelType, context)
+
+	if(result.entities) {
+	
+		let fuelType = result.entities.fuelType[0].value
+		let location = result.entities.location[0].value		
+		if(fuelType && location) {
+			fetchFuelStationPrice(location, fuelType, context)
+		}
+		
 	} else {
-		console.log("no entities founded")
+		context.sendText(Strings.helpText)
 	}
+	
 }
 
 function fetchFuelStationPrice(city, fuel, context) {
