@@ -1,12 +1,15 @@
 
 const { TelegramBot } = require('bottender')
 const { createServer } = require('bottender/express')
-const Strings = require('./Strings.js');
-const HTTPCleverTankenProvider  = require('./HTTPCleverTankenProvider.js');
 const {Wit, log} = require('node-wit');
 
+const Strings = require('./Strings.js');
+const HTTPCleverTankenProvider  = require('./HTTPCleverTankenProvider.js');
+const commands = require('./commands.js')
 const config = require('./bottender.config.js')
 
+
+// Wit
 const witClient = new Wit({
   accessToken: "XEIUUVCOS5OKC2MRNCKKMEQI6XTB3FFR",
   logger: new log.Logger(log.DEBUG) // optional
@@ -23,19 +26,26 @@ bot.setInitialState({
 });
 
 bot.onEvent(async context => {
+
+	commands.commander.setSend(function(meta, message) {
+		context.sendText(message)
+	})
+	
+	commands.commander.parse(context.event.text)
+	
 	if(context.event.isText) {
 		fetchTextInfo(context.event.text, context)
 	} else {
 		console.log("no event founded")
 	}
-});
+})
 
 
 // Start the Server
 const server = createServer(bot)
 server.listen(process.env.PORT, () => {
   console.log("server is running on" + process.env.PORT + " port...")
-});
+})
 
 // Functions
 
@@ -49,7 +59,7 @@ function fetchTextInfo(text, context) {
 
 function handleText(result, context) {
 
-	if(result.entities) {
+	if(result.entities && result.entities.fuelTyp && result.entities.location) {
 	
 		let fuelType = result.entities.fuelType[0].value
 		let location = result.entities.location[0].value		
