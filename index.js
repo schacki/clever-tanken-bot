@@ -8,6 +8,28 @@ const HTTPCleverTankenProvider  = require('./HTTPCleverTankenProvider.js');
 const commands = require('./commands.js')
 const config = require('./bottender.config.js')
 
+//Install
+
+var areIntlLocalesSupported = require('intl-locales-supported');
+ 
+var localesMyAppSupports = [
+   "de-DE"
+];
+ 
+if (global.Intl) {
+    // Determine if the built-in `Intl` has the locale data we need. 
+    if (!areIntlLocalesSupported(localesMyAppSupports)) {
+        // `Intl` exists, but it doesn't have the data we need, so load the 
+        // polyfill and replace the constructors with need with the polyfill's. 
+        require('intl');
+        Intl.NumberFormat   = IntlPolyfill.NumberFormat;
+        Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
+    }
+} else {
+    // No `Intl`, so use and load the polyfill. 
+    global.Intl = require('intl');
+}
+
 
 // Wit
 const witClient = new Wit({
@@ -121,7 +143,7 @@ function fetchFuelStationPrice(city, fuel, context) {
               } else {
              	 let maxString = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(max)
              	 let minString = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(min)
-                context.sendText(Strings.resultTextMinMaxPrice(fuelStation.fueltype, fuelStation.city, minString, maxString))
+               	 context.sendText(Strings.resultTextMinMaxPrice(fuelStation.fueltype, fuelStation.city, minString, maxString))
               }
 
           } else {
