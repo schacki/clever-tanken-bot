@@ -22,7 +22,15 @@ const facebookBot = new MessengerBot({
 });
 
 facebookBot.onEvent(async context => {
-  await context.sendText('Hello World');
+
+  	if(commands.parse(context.event.text)) { return }  
+	
+	if(context.event.isText) {
+		fetchTextInfo(context.event.text, context)
+	} else {
+		console.log("no event found")
+	}
+	
 });
 
 
@@ -42,8 +50,9 @@ telegramBot.onEvent(async context => {
 	if(context.event.isText) {
 		fetchTextInfo(context.event.text, context)
 	} else {
-		console.log("no event founded")
+		console.log("no event found")
 	}
+	
 })
 
 
