@@ -48,8 +48,15 @@ telegramBot.onEvent(async context => {
 
 
 // Start the Server
-const server = createServer(telegramBot, facebookBot)
-server.listen(process.env.PORT, () => {
+const tServer = createServer(telegramBot)
+tServer.listen(process.env.PORT, () => {
+  console.log("server is running on" + process.env.PORT + " port...")
+})
+
+const fServer = createServer(facebookBot, {
+  verifyToken: config.messenger.verifyToken
+})
+fServer.listen(process.env.PORT, () => {
   console.log("server is running on" + process.env.PORT + " port...")
 })
 
