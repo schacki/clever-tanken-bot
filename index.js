@@ -111,7 +111,7 @@ function handleText(result, context) {
 		}
 		
 	} else {
-		context.sendText(Strings.helpText)
+		context.sendText(Strings.UNKNOWN_TEXT)
 	}
 	
 }
