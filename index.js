@@ -59,7 +59,7 @@ facebookBot.onEvent(async context => {
 const telegramBot = new TelegramBot({
   accessToken: config.telegram.accessToken,
   sessionStore: new FileSessionStore()
-});
+})
 
 telegramBot.setInitialState({
   searchRadius: 10
@@ -77,8 +77,6 @@ telegramBot.onEvent(async context => {
 	
 })
 
-telegramBot.createRuntime();
-
 
 // Start the Server
 const tServer = createServer(telegramBot)
@@ -86,9 +84,9 @@ tServer.listen(process.env.PORT, () => {
   console.log("server is running on" + process.env.PORT + " port...")
 })
 
-const fServer = createServer(facebookBot, {
+/*const fServer = createServer(facebookBot, {
   verifyToken: config.messenger.verifyToken
-})
+})*/
 /*fServer.listen(process.env.PORT, () => {
   console.log("server is running on" + process.env.PORT + " port...")
 })*/
