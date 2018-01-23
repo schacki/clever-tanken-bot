@@ -20,5 +20,10 @@ function executeCommand(commandObject, context) {
 		return true
 	}
 	
+	if(commandObject.command == "help") {
+		context.sendText(Strings.helpText)
+		return true
+	}
+	
 	return false
 }
