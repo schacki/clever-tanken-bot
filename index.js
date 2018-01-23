@@ -1,5 +1,5 @@
 
-const { TelegramBot, MessengerBot, FileSessionStore } = require('bottender')
+const { TelegramBot, FileSessionStore } = require('bottender')
 const { createServer } = require('bottender/express')
 const {Wit, log} = require('node-wit');
 
@@ -61,9 +61,9 @@ const telegramBot = new TelegramBot({
   sessionStore: new FileSessionStore()
 });
 
-/*telegramBot.setInitialState({
+telegramBot.setInitialState({
   searchRadius: 10
-});*/
+})
 
 telegramBot.onEvent(async context => {
 
