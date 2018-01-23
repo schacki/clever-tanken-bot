@@ -58,7 +58,7 @@ facebookBot.onEvent(async context => {
 // TelegramBot
 const telegramBot = new TelegramBot({
   accessToken: config.telegram.accessToken,
-  sessionStore: new MongoSessionStore('mongodb://localhost')
+  sessionStore: new MongoSessionStore('mongodb://localhost:' +  process.env.PORT)
 });
 
 telegramBot.setInitialState({
