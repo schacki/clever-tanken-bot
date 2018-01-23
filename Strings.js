@@ -4,6 +4,14 @@ exports.UNKNOWN_TEXT = 'Leider konnte ich dich nicht verstehen benutzte /help Ko
 exports.UNKNOWN_FUELTYPE_TEXT = "Tut mir leid, ich kenne die Spritsorte nicht.";
 exports.UNKNOWN_CITY_TEXT = "Tut mir leid, ich kenne die Stadt nicht.";
 
+exports.GET_RADIUS = function(radius) {
+	return 'Dein Suchradius ist auf ' + radius + 'km gesetzt'
+}
+
+exports.SETED_RADIUS = function(radius) {
+	return 'Ich habe den Suchradius für dich auf ' + radius + 'km gesetzt'
+}
+
 exports.NO_PRICE_FOUND_TEXT = function(fuelType, city) {
   return 'Ich habe keinen Preis für ' + fuelType + ' in ' + city + ' gefunden.';
 }
