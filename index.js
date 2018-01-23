@@ -110,10 +110,10 @@ function handleText(result, context) {
 			fetchFuelStationPrice(location, fuelType, context)
 		}
 		
-	} else if(result.entities && result.entities.number && result.intent && result.intent[0].value == "setSearchRadius") {
+	} else if(result.entities && result.entities.number && result.entities.intent && result.entities.intent[0].value == "setSearchRadius") {
 		context.setState({ searchRadius: result.entities.number[0].value })
 		context.sendText(Strings.SETED_RADIUS(result.entities.number[0].value))
-	} else if(result.entities && result.intent && result.intent[0].value == "getSearchRadius") {
+	} else if(result.entities && result.entities.intent && result.entities.intent[0].value == "getSearchRadius") {
 		context.sendText(Strings.GET_RADIUS(context.state.searchRadius))
 	} else {
 		context.sendText(Strings.UNKNOWN_TEXT)
