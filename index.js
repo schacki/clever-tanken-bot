@@ -1,5 +1,5 @@
 
-const { TelegramBot } = require('bottender')
+const { TelegramBot, MessengerBot} = require('bottender')
 const { createServer } = require('bottender/express')
 const {Wit, log} = require('node-wit');
 
@@ -13,27 +13,33 @@ const config = require('./bottender.config.js')
 const witClient = new Wit({
   accessToken: "XEIUUVCOS5OKC2MRNCKKMEQI6XTB3FFR",
   logger: new log.Logger(log.DEBUG) // optional
+})
+
+// FacebookBot
+const facebookBot = new MessengerBot({
+  accessToken: config.messenger.accessToken,
+  appSecret: config.messenger.appSecret
+});
+
+facebookBot.onEvent(async context => {
+  await context.sendText('Hello World');
 });
 
 
-// Bot
-const bot = new TelegramBot({
+// TelegramBot
+const telegramBot = new TelegramBot({
   accessToken: config.telegram.accessToken,
 });
 
-bot.setInitialState({
+telegramBot.setInitialState({
   searchRadius: 10
 });
 
-bot.onEvent(async context => {
+telegramBot.onEvent(async context => {
 
-	commands.commander.setSend(function(meta, message) {
-		context.sendText(message)
-	})
+	if(commands.parse(context.event.text)) { return }  
 	
-	if(commands.commander.parse(context.event.text)) { 
-	
-	} else if(context.event.isText) {
+	if(context.event.isText) {
 		fetchTextInfo(context.event.text, context)
 	} else {
 		console.log("no event founded")
@@ -42,7 +48,7 @@ bot.onEvent(async context => {
 
 
 // Start the Server
-const server = createServer(bot)
+const server = createServer(telegramBot, facebookBot)
 server.listen(process.env.PORT, () => {
   console.log("server is running on" + process.env.PORT + " port...")
 })

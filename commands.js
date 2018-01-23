@@ -1,13 +1,24 @@
-const commander = require('bot-commander')
+const behest = require('behest');
 const Strings = require('./Strings.js')
 
-commander
-.command('/start')
-.action( meta => {
-  commander.send(meta, Strings.helpText)
-})
-  
-exports.commander = commander
 exports.parse = function(text, context) {
-	commander.parse(text)
+
+	if(behest.isValid(text)) {
+		let commandObject = behest(text)
+		return executeCommand(commandObject)
+	} else {
+		return false
+	}
+	
+}
+
+function executeCommand(commandObject, context) {
+	if(commandObject.start == "/") { return false }
+	
+	if(commandObject.command == "start") {
+		context.sendText(Strings.helpText)
+		return true
+	}
+	
+	return false
 }
