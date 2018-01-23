@@ -61,9 +61,9 @@ const telegramBot = new TelegramBot({
   sessionStore: new FileSessionStore()
 });
 
-telegramBot.setInitialState({
+/*telegramBot.setInitialState({
   searchRadius: 10
-});
+});*/
 
 telegramBot.onEvent(async context => {
 
