@@ -37,7 +37,7 @@ const witClient = new Wit({
 })
 
 // FacebookBot
-const facebookBot = new MessengerBot({
+/*const facebookBot = new MessengerBot({
   accessToken: config.messenger.accessToken,
   appSecret: config.messenger.appSecret
 });
@@ -52,7 +52,7 @@ facebookBot.onEvent(async context => {
 		console.log("no event found")
 	}
 	
-});
+})*/
 
 
 // TelegramBot
