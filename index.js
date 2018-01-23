@@ -8,7 +8,7 @@ const HTTPCleverTankenProvider  = require('./HTTPCleverTankenProvider.js');
 const commands = require('./commands.js')
 const config = require('./bottender.config.js')
 
-//Install
+//Setup
 
 var areIntlLocalesSupported = require('intl-locales-supported');
  
@@ -21,14 +21,11 @@ if (global.Intl) {
     if (!areIntlLocalesSupported(localesMyAppSupports)) {
         // `Intl` exists, but it doesn't have the data we need, so load the 
         // polyfill and replace the constructors with need with the polyfill's. 
-        require('intl');
+      
         Intl.NumberFormat   = IntlPolyfill.NumberFormat;
         Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
     }
-} else {
-    // No `Intl`, so use and load the polyfill. 
-    global.Intl = require('intl');
-}
+ }
 
 
 // Wit
