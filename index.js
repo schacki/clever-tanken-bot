@@ -77,6 +77,8 @@ telegramBot.onEvent(async context => {
 	
 })
 
+telegramBot.createRuntime();
+
 
 // Start the Server
 const tServer = createServer(telegramBot)
