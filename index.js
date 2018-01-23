@@ -81,7 +81,7 @@ function fetchTextInfo(text, context) {
 
 function handleText(result, context) {
 
-	if(result.entities && result.entities.fuelTyp && result.entities.location) {
+	if(result.entities && result.entities.fuelType && result.entities.location) {
 	
 		let fuelType = result.entities.fuelType[0].value
 		let location = result.entities.location[0].value		
