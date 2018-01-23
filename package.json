@@ -9,6 +9,7 @@
   "dependencies": {
     "behest": "^1.0.4",
     "bottender": "0.14.18",
+    "intl": "^1.2.5",
     "intl-locales-supported": "^1.0.0",
     "node-wit": "^4.3.0",
     "nodemon": "1.14.11"
