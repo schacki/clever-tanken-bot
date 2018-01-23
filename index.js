@@ -1,5 +1,5 @@
 
-const { TelegramBot, MessengerBot} = require('bottender')
+const { TelegramBot, MessengerBot, MongoSessionStore } = require('bottender')
 const { createServer } = require('bottender/express')
 const {Wit, log} = require('node-wit');
 
@@ -58,6 +58,7 @@ facebookBot.onEvent(async context => {
 // TelegramBot
 const telegramBot = new TelegramBot({
   accessToken: config.telegram.accessToken,
+  sessionStore: new MongoSessionStore('mongodb://localhost:27017/')
 });
 
 telegramBot.setInitialState({
