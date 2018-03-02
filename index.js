@@ -28,8 +28,8 @@ if (global.Intl) {
   global.Intl = require("intl");
 }
 
-const server = createServer(telegramBot);
+const server = createServer(Bot);
 server.listen(process.env.PORT, () => {
-  console.log("server is running on" + process.env.PORT + " port...");
+  console.log("server is running on " + process.env.PORT + " port...");
 });
 

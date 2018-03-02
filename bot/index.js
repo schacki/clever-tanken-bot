@@ -1,5 +1,5 @@
 const { TelegramBot, FileSessionStore } = require("bottender")
-const { Telegram, Messenger } = require("config.json")
+const { Telegram, Messenger } = require("./config.json")
 
 // Telegram Bot
 const bot = new TelegramBot({

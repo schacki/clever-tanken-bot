@@ -3,7 +3,7 @@ const { Wit } = require("../../utilities")
 const { CTProvider } = require("../../provider");
 const Strings = require("../strings.js")
 
-exports.handle(context) = function() {
+exports.handle = function(context) {
     if (context.event.isText) {
         Wit.fetchTextInfo(context.event.text)
         .then(data => {

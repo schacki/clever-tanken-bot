@@ -1,5 +1,5 @@
 const behest = require('behest');
-const Strings = require('./Strings.js')
+const Strings = require('../strings.js')
 
 exports.parse = function(text, context) {
 
