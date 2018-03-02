@@ -9,21 +9,30 @@ exports.parse = function(text, context) {
 	} else {
 		return false
 	}
-	
+
 }
 
 function executeCommand(commandObject, context) {
 	if(commandObject.start == "/") { return false }
-	
+
 	if(commandObject.command == "start") {
-		context.sendText(Strings.helpText)
+		executeStartCommand()
 		return true
 	}
-	
+
 	if(commandObject.command == "help") {
-		context.sendText(Strings.helpText)
+		executeHelpCommand()
 		return true
 	}
-	
+
 	return false
+
+}
+
+function executeStartCommand() {
+	context.sendText(Strings.helpText)
+}
+
+function executeHelpCommand() {
+	context.sendText(Strings.helpText)
 }
