@@ -5,7 +5,7 @@ const WitClient = new Wit({
   logger: new log.Logger(log.DEBUG)
 })
 
-exports.fetchTextInfo = function() {
+exports.fetchTextInfo = function(text) {
   return WitClient.message(text)
 }
 
