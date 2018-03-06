@@ -22,6 +22,7 @@ exports.findMatch = function(result, entities, intents) {
   }
 
   console.log(entities)
+  console.log(result.entities)
 
   let values = {};
   if(entities && result.entities) {
