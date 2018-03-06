@@ -31,7 +31,7 @@ exports.findMatch = function(result, entities, intents) {
     }
   }
 
-  if((!entities || Object.keys(values).length == entities.length) && (!intents || foundIntent)) { return null }
-  return values
+  if((!entities || Object.keys(values).length == entities.length) && (!intents || foundIntent)) { return values }
+  return null
 
 }
