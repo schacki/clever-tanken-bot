@@ -31,6 +31,8 @@ exports.findMatch = function(result, entities, intents) {
     }
   }
 
+  console.log("values")
+  console.log(values)
   if((!entities || Object.keys(values).length == entities.length) && (!intents || foundIntent)) { return values }
   return null
 
