@@ -25,14 +25,12 @@ exports.findMatch = function(result, entities, intents) {
   if(entities && result.entities) {
     for(entity in entities) {
       value = result.entities[entity]
-      if(founded) {
+      if(value) {
         values[entity] = value
       }
     }
   }
-
-  console.log("values")
-  console.log(values)
+  
   if((!entities || Object.keys(values).length == entities.length) && (!intents || foundIntent)) { return values }
   return null
 
