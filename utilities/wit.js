@@ -21,6 +21,8 @@ exports.findMatch = function(result, entities, intents) {
       }
   }
 
+  console.log(entities)
+
   let values = {};
   if(entities && result.entities) {
     for(entity in entities) {
@@ -30,7 +32,9 @@ exports.findMatch = function(result, entities, intents) {
       }
     }
   }
-  
+
+  console.log(values)
+
   if((!entities || Object.keys(values).length == entities.length) && (!intents || foundIntent)) { return values }
   return null
 
