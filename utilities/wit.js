@@ -24,7 +24,7 @@ exports.findMatch = function(result, entities, intents) {
   let values = {};
   if(entities && result.entities) {
     for(entity in entities) {
-      value = result.entities[entity]
+      value = result.entities[entity].value
       if(value) {
         values[entity] = value
       }
