@@ -21,6 +21,12 @@ exports.findMatch = function(result, entities, intents) {
       }
   }
 
+  console.log("search for")
+  console.log(entities)
+
+  console.log("entities")
+  console.log(result.entities)
+
   let values = {};
   if(entities && result.entities) {
     for(entity in entities) {
