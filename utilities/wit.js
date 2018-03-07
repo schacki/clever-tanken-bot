@@ -24,11 +24,13 @@ exports.findMatch = function(result, entities, intents) {
   console.log(entities)
   console.log(result.entities)
 
-  let values = {};
+  let values = {}
   if(entities && result.entities) {
     for(entity in entities) {
       value = result.entities[entity]
       if(value) {
+        console.log("founded value")
+        console.log(value)
         values[entity] = value
       }
     }
