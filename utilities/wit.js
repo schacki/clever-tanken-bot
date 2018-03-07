@@ -13,7 +13,7 @@ exports.findMatch = function(result, entities, intents) {
 
   let foundIntent = false
   if(intents && result.entities && result.entities.intent) {
-      for(const intent in intents) {
+      for(intent in intents) {
         const foundIndex = result.entities.intent.indexOf(intent.value)
         if(foundIndex != -1) {
           foundIntent = true
@@ -23,15 +23,14 @@ exports.findMatch = function(result, entities, intents) {
 
   let values = {}
   if(entities && result.entities) {
-    for (const entity in entities) {
+    for (index in entities) {
+      const entity = entities[index]
       const value = result.entities[entity]
       if(value) {
         values[entity] = value
       }
     }
   }
-
-  console.log(values)
 
   if((!entities || Object.keys(values).length == entities.length) && (!intents || foundIntent)) { return values }
   return null
