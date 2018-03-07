@@ -6,7 +6,7 @@ const Strings = require("../strings.js")
 exports.handle = function(context) {
     if (context.event.isText) {
         Wit.fetchTextInfo(context.event.text)
-        .then(data => {
+        .then((data) => {
             handleText(data, context)
         })
         .catch(console.error)
@@ -40,7 +40,7 @@ function handleText(result, context) {
   function fetchFuelStationPrice(city, fuel, context) {
 
     CTProvider.getFuelStationPrices(city, fuel)
-    .then(response => {
+    .then((response) => {
 
       var min = Number(response.price_min)
         var max = Number(response.price_max)
@@ -84,7 +84,7 @@ function handleText(result, context) {
           )
         }
     })
-    .catch(response, error => {
+    .catch((response, error) => {
       if (response.reason == "UNKNOWN_FUELTYPE") {
         if (fuel == undefined) {
           context.sendText(Strings.UNKNOWN_FUELTYPE_TEXT);

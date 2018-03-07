@@ -13,8 +13,8 @@ exports.CTProvider = class CTProvider {
         return new Promise((completionHandler, errorHandler) => {
             request.get(this.createPricesURL("variance", city, fuelType), function(error, response, body) {
             
-                var result = JSON.parse(body);
-                var isOk = response.statusCode == 200;
+                var result = JSON.parse(body)
+                var isOk = response.statusCode == 200
             
                  if(isOk) { completionHandler(result) } else { errorHandler(result, error) }
 
