@@ -17,16 +17,16 @@ exports.handle = function(context) {
 
 function handleText(result, context) {
 
-    let searchForFuelStationValues = Wit.findMatch(result, ["fuelType", "location"])
-    let setSearchRadiusValues = Wit.findMatch(result, ["number", "intent"], ["setSearchRadius"])
-    let getSearchRadiusValues = Wit.findMatch(result, null, ["getSearchRadius"])
+    const searchForFuelStationValues = Wit.findMatch(result, ["fuelType", "location"])
+    const setSearchRadiusValues = Wit.findMatch(result, ["number", "intent"], ["setSearchRadius"])
+    const getSearchRadiusValues = Wit.findMatch(result, null, ["getSearchRadius"])
   
     if(searchForFuelStationValues) {
-      let location = searchForFuelStationValues["location"][0].value
-      let fuelType = searchForFuelStationValues["fuelType"][0].value
+      const location = searchForFuelStationValues["location"][0].value
+      const fuelType = searchForFuelStationValues["fuelType"][0].value
       fetchFuelStationPrice(location, fuelType, context);
     } else if(setSearchRadiusValues) {
-      let radius = setSearchRadiusValues["number"][0].value;
+      const radius = setSearchRadiusValues["number"][0].value;
       context.setState({ searchRadius: radius });
       context.sendText(Strings.SETED_RADIUS(radius));
     } else if(setSearchRadiusValues) {
@@ -42,8 +42,8 @@ function handleText(result, context) {
     CTProvider.getFuelStationPrices(city, fuel)
     .then((response) => {
 
-        var min = Number(response.price_min)
-        var max = Number(response.price_max)
+        let min = Number(response.price_min)
+        let max = Number(response.price_max)
   
         min = min.toString()
         min = min.slice(0, min.indexOf(".") + 3)
@@ -54,7 +54,7 @@ function handleText(result, context) {
         max = Number(max)
   
         if (min == max) {
-          let maxString = new Intl.NumberFormat("de-DE", {
+          const maxString = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR"
           }).format(max);
@@ -66,11 +66,11 @@ function handleText(result, context) {
             )
           );
         } else {
-          let maxString = new Intl.NumberFormat("de-DE", {
+          const maxString = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR"
           }).format(max);
-          let minString = new Intl.NumberFormat("de-DE", {
+          const minString = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR"
           }).format(min);

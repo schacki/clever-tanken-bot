@@ -28,6 +28,6 @@ exports.CTProvider = class CTProvider {
     }
 
     createPricesURL(path, city, fuelType) {
-        return this.url + "/prices/v" + this.versionNumber + "/" + path + "?user=" + this.username + "&pwd=" + this.password + "&city=" + city + "&fueltype=" + fuelType;
+        return this.url + "/prices/v" + this.version + "/" + path + "?user=" + this.username + "&pwd=" + this.password + "&city=" + city + "&fueltype=" + fuelType;
     }
 }
