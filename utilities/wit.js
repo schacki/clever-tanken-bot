@@ -12,9 +12,9 @@ exports.fetchTextInfo = function(text) {
 exports.findMatch = function(result, entities, intents) {
 
   let foundIntent = false
-  if(!intents && result.entities && result.entities.intent) {
-      for(intent in intents) {
-        let foundIndex = result.entities.intent.indexOf(intent.value)
+  if(intents && result.entities && result.entities.intent) {
+      for(const intent in intents) {
+        const foundIndex = result.entities.intent.indexOf(intent.value)
         if(foundIndex != -1) {
           foundIntent = true
         }
@@ -24,7 +24,7 @@ exports.findMatch = function(result, entities, intents) {
   let values = {}
   if(entities && result.entities) {
     for (const entity in entities) {
-      value = result.entities[entity]
+      const value = result.entities[entity]
       if(value) {
         values[entity] = value
       }
