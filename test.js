@@ -1,10 +1,7 @@
-// const { Wit } = require("./utilities")
+const { Wit } = require("./utilities")
 
-// Wit.fetchTextInfo("wie teuer ist diesel in berlin")
-// .then(result => {
-//     let searchForFuelStationValues = Wit.findMatch(result, ["fuelType", "location"])
-// })
-
-
-message = "lol"
-console.log(message) 
+Wit.fetchTextInfo("wie teuer ist diesel in berlin")
+.then(result => {
+    let searchForFuelStationValues = Wit.findMatch(result, ["fuelType", "location"])
+    console.log(searchForFuelStationValues)
+})

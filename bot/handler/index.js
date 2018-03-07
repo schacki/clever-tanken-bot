@@ -21,7 +21,7 @@ function handleText(result, context) {
     let setSearchRadiusValues = Wit.findMatch(result, ["number", "intent"], ["setSearchRadius"])
     let getSearchRadiusValues = Wit.findMatch(result, null, ["getSearchRadius"])
   
-    if(searchForFuelStationValues != null) {
+    if(searchForFuelStationValues) {
       let location = searchForFuelStationValues["location"][0].value
       let fuelType = searchForFuelStationValues["fuelType"][0].value
       fetchFuelStationPrice(location, fuelType, context);
