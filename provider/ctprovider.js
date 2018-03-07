@@ -10,7 +10,7 @@ exports.CTProvider = class CTProvider {
     }
 
     getFuelStationPrices(city, fuelType) {
-        return new Promise(completionHandler, errorHandler => {
+        return new Promise((completionHandler, errorHandler) => {
             request.get(this.createPricesURL("variance", city, fuelType), function(error, response, body) {
             
                 var result = JSON.parse(body);
