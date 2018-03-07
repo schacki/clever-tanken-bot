@@ -42,7 +42,7 @@ function handleText(result, context) {
     CTProvider.getFuelStationPrices(city, fuel)
     .then((response) => {
 
-      var min = Number(response.price_min)
+        var min = Number(response.price_min)
         var max = Number(response.price_max)
   
         min = min.toString()

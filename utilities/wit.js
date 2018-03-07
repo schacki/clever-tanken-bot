@@ -32,7 +32,13 @@ exports.findMatch = function(result, entities, intents) {
     }
   }
 
-  if((!entities || Object.keys(values).length == entities.length) && (!intents || foundIntent)) { return values }
+  if((!entities || Object.keys(values).length == entities.length) && (!intents || foundIntent)) { 
+    console.log("values")
+    console.log(values)
+    return values 
+  }
+
+  console.log("null")
   return null
 
 }

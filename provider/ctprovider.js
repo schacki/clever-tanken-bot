@@ -15,7 +15,9 @@ exports.CTProvider = class CTProvider {
             
                 var result = JSON.parse(body)
                 var isOk = response.statusCode == 200
-            
+                
+                console.log("result")
+                console.log(result)
                  if(isOk) { completionHandler(result) } else { errorHandler(result, error) }
 
              })
