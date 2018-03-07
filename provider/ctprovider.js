@@ -14,7 +14,7 @@ exports.CTProvider = class CTProvider {
             const url = this.createPricesURL("variance", city, fuelType)
             console.log("request")
             console.log(url)
-            request.get(url, function(error, response, body) {
+            Request.get(url, function(error, response, body) {
             
                 var result = JSON.parse(body)
                 var isOk = response.statusCode == 200
