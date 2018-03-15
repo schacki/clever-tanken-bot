@@ -1,4 +1,4 @@
-const { Telegram } = require("bot/config.json")
+const { Telegram } = require("./bot/config.json")
 
 module.exports = {
     telegram: {
