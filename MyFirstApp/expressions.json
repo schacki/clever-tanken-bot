@@ -1,0 +1,156 @@
+{
+  "data" : [
+    {
+      "text" : "Wie teuer ist Diesel in München"
+    },
+    {
+      "text" : "Wie viel kostest Super in Munich"
+    },
+    {
+      "text" : "Wie viel kostet Diesel in Munich"
+    },
+    {
+      "text" : "Wie viel kostet Super in Munich"
+    },
+    {
+      "text" : "how expensive is Diesel in munich"
+    },
+    {
+      "text" : "setz suchradius 30",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"setSearchRadius\"",
+          "start" : 0,
+          "end" : 15
+        }
+      ]
+    },
+    {
+      "text" : "setzte den Suchradius auf 30 km ",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"setSearchRadius\"",
+          "start" : 0,
+          "end" : 21
+        },
+        {
+          "entity" : "number",
+          "value" : "\"30\"",
+          "start" : 26,
+          "end" : 28
+        }
+      ]
+    },
+    {
+      "text" : "such 20 km weit",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"setSearchRadius\"",
+          "start" : 0,
+          "end" : 4
+        },
+        {
+          "entity" : "number",
+          "value" : "20",
+          "start" : 5,
+          "end" : 7
+        },
+        {
+          "entity" : "intent",
+          "value" : "\"setSearchRadius\"",
+          "start" : 8,
+          "end" : 15
+        }
+      ]
+    },
+    {
+      "text" : "such in einem 30 km radius",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"setSearchRadius\""
+        },
+        {
+          "entity" : "number",
+          "value" : "30",
+          "start" : 14,
+          "end" : 16
+        }
+      ]
+    },
+    {
+      "text" : "such in einen 30 km radius",
+      "entities" : [
+        {
+          "entity" : "number",
+          "value" : "30",
+          "start" : 14,
+          "end" : 16
+        },
+        {
+          "entity" : "intent",
+          "value" : "\"setSearchRadius\"",
+          "start" : 20,
+          "end" : 26
+        }
+      ]
+    },
+    {
+      "text" : "was ist mein aktueller such radius"
+    },
+    {
+      "text" : "was ist mein aktueller suchradius",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"getSearchRadius\"",
+          "start" : 23,
+          "end" : 33
+        }
+      ]
+    },
+    {
+      "text" : "wie hoch ist der diesel preis in münchen"
+    },
+    {
+      "text" : "wie teuer ist Diesel in München",
+      "entities" : [
+        {
+          "entity" : "fuelType",
+          "value" : "\"Diesel\"",
+          "start" : 14,
+          "end" : 20
+        }
+      ]
+    },
+    {
+      "text" : "wie teuer ist Diesel in munich"
+    },
+    {
+      "text" : "wie teuer ist der diesel"
+    },
+    {
+      "text" : "wie teuer ist diesel in berlin"
+    },
+    {
+      "text" : "wie teuer ist diesel in munich"
+    },
+    {
+      "text" : "zeige mir meinen such radius"
+    },
+    {
+      "text" : "zeige suchradius",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"getSearchRadius\"",
+          "start" : 0,
+          "end" : 16
+        }
+      ]
+    }
+  ]
+}

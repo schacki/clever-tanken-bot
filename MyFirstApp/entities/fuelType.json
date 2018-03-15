@@ -1,0 +1,70 @@
+{
+  "data" : {
+    "lookups" : [
+      "keywords"
+    ],
+    "name" : "fuelType",
+    "lang" : "de",
+    "exotic" : false,
+    "id" : "fuelType",
+    "values" : [
+      {
+        "value" : "AdBlue",
+        "expressions" : [
+          "AdBlue"
+        ]
+      },
+      {
+        "value" : "Autogas",
+        "expressions" : [
+          "Autogas"
+        ]
+      },
+      {
+        "value" : "Bioethanol",
+        "expressions" : [
+          "Bioethanol"
+        ]
+      },
+      {
+        "value" : "Diesel",
+        "expressions" : [
+          "Diesel"
+        ]
+      },
+      {
+        "value" : "Erdgas",
+        "expressions" : [
+          "Erdgas"
+        ]
+      },
+      {
+        "value" : "Premium Diesel",
+        "expressions" : [
+          "Premium Diesel"
+        ]
+      },
+      {
+        "value" : "Super E10",
+        "expressions" : [
+          "Super E10"
+        ]
+      },
+      {
+        "value" : "Super E5",
+        "expressions" : [
+          "Super",
+          "Super E5"
+        ]
+      },
+      {
+        "value" : "SuperPlus",
+        "expressions" : [
+          "SuperPlus"
+        ]
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

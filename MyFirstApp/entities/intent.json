@@ -1,0 +1,21 @@
+{
+  "data" : {
+    "lookups" : [
+      "trait"
+    ],
+    "name" : "intent",
+    "lang" : "de",
+    "exotic" : false,
+    "id" : "intent",
+    "values" : [
+      {
+        "value" : "getSearchRadius"
+      },
+      {
+        "value" : "setSearchRadius"
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}
