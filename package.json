@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "behest": "^1.0.4",
-    "bottender": "0.14.18",
+    "bottender": "^0.14.18",
     "brackets-nodejs-integration": "^1.8.19",
     "intl": "^1.2.5",
     "intl-locales-supported": "^1.0.0",
