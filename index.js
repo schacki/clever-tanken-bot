@@ -14,6 +14,11 @@ Bot.onEvent(async context => {
   Handler.handle(context)
 })
 
+const arg = JSON.parse(process.env.npm_config_argv)
+if(arg.original.length > 1 && arg.original[0] == "run" &&  arg.original[1] == "dev") {
+  Bot.createRuntime()
+}
+
 // Setup Server
 var areIntlLocalesSupported = require("intl-locales-supported");
 var localesMyAppSupports = ["de-DE"];
