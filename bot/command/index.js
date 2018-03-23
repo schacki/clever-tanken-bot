@@ -4,8 +4,9 @@ const Strings = require('../strings.js')
 exports.parse = function(text, context) {
 
 	if(behest.isValid(text)) {
+		console.log("command valid")
 		const commandObject = behest(text)
-		return executeCommand(commandObject)
+		return executeCommand(commandObject, context)
 	} else {
 		return false
 	}
@@ -13,15 +14,18 @@ exports.parse = function(text, context) {
 }
 
 function executeCommand(commandObject, context) {
-	if(commandObject.start == "/") { return false }
+	
+	if(commandObject.start != "/") { return false }
+
+	console.log("execute command valid")
 
 	if(commandObject.command == "start") {
-		executeStartCommand()
+		executeStartCommand(context)
 		return true
 	}
 
 	if(commandObject.command == "help") {
-		executeHelpCommand()
+		executeHelpCommand(context)
 		return true
 	}
 
@@ -29,10 +33,10 @@ function executeCommand(commandObject, context) {
 
 }
 
-function executeStartCommand() {
+function executeStartCommand(context) {
 	context.sendText(Strings.helpText)
 }
 
-function executeHelpCommand() {
+function executeHelpCommand(context) {
 	context.sendText(Strings.helpText)
 }
