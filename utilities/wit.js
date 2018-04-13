@@ -1,7 +1,7 @@
 const { Wit, log } = require("node-wit")
 
 const WitClient = new Wit({
-  accessToken: "",
+  accessToken: "XEIUUVCOS5OKC2MRNCKKMEQI6XTB3FFR",
   logger: new log.Logger(log.DEBUG)
 })
 
@@ -9,11 +9,11 @@ exports.fetchTextInfo = function(text) {
   return WitClient.message(text)
 }
 
-exports.findMatch = function(result, entities, intents) {
+exports.findMatch = function(result, entities, intent) {
 
   let foundIntent = false
-  if(intents && result.entities && result.entities.intent) {
-      for(intent in intents) {
+  if(intent && result.entities && result.entities[intent.name]) {
+      for(intent in intent.intents) {
         const foundIndex = result.entities.intent.indexOf(intent.value)
         if(foundIndex != -1) {
           foundIntent = true
