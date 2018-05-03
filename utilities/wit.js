@@ -1,7 +1,7 @@
 const { Wit, log } = require("node-wit")
 
 const WitClient = new Wit({
-  accessToken: "XEIUUVCOS5OKC2MRNCKKMEQI6XTB3FFR",
+  accessToken: "HBGMNEFWMHTGHXQHUS2CP7AUQQ23TWQ2",
   logger: new log.Logger(log.DEBUG)
 })
 
