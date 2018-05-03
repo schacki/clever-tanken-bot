@@ -14,7 +14,7 @@ exports.CTProvider = class CTProvider {
             const url = this.createPricesURL("variance", city, fuelType)
             console.log("request")
             console.log(url)
-            Request.get(url, function(error, response, body) {
+            Request.get(url ,function(error, response, body) {
             
                 var result = JSON.parse(body)
                 var isOk = response.statusCode == 200
@@ -23,11 +23,11 @@ exports.CTProvider = class CTProvider {
                 console.log(result)
                  if(isOk) { completionHandler(result) } else { errorHandler(result, error) }
 
-             })
+             }).auth('hackathon', 'hackathon2018$#')
         })
     }
 
     createPricesURL(path, city, fuelType) {
-        return this.url + "/prices/v" + this.version + "/" + path + "?user=" + this.username + "&pwd=" + this.password + "&city=" + city + "&fueltype=" + fuelType;
+        return this.url + "/prices/v" + this.version + "/" + path + "?city=" + city + "&fueltype=" + fuelType;
     }
 }
