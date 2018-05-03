@@ -1,5 +1,5 @@
 {
-    "url": "https://secure.clever-tanken.de/api",
+    "url": "https://secure.test.clever-tanken.de/api",
     "username": "hackathon",
     "password": "hackathon2018$#",
     "version": 1 
