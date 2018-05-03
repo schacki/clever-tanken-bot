@@ -1,13 +1,6 @@
 {
 
-  "Telegram": {
-    "accessToken": ""
-  },
-
-  "Messenger": {
-    "accessToken": "",
-    "appSecret": "",
-    "verifyToken": ""
-  }
-
+ "Telegram": { "accessToken": "553741914:AAHlJmIomTHNVf6BoSKRHVWjUbGwF_UZGJo" },
+ "Messenger": { "accessToken": "", "appSecret": "", "verifyToken": "" }  
+  
 }
